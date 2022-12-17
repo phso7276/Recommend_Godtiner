@@ -41,6 +41,10 @@ def find_sim_theme(df, sorted_ind, title_name, top_n=10):
     # DataFrame 에서 index로 사용하기 위해서 1차원 array로 변경
     print(similar_indexes)
     similar_indexes = similar_indexes.reshape(-1)
+    # 기준 루틴 인덱스는 제외
+    similar_indexes = similar_indexes[similar_indexes != title_index]
+
+    print("real:"+similar_indexes)
 
     return df.iloc[similar_indexes]
 
